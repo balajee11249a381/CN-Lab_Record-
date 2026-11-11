@@ -1,0 +1,33 @@
+
+arp = {
+    "192.168.1.1": "AA:BB:CC:DD:EE:FF",
+    "192.168.1.2": "11:22:33:44:55:66"
+}
+
+print("1. ARP (IP to MAC)")
+print("2. RARP (MAC to IP)")
+
+choice = int(input("Enter your choice: "))
+
+if choice == 1:
+    ip = input("Enter IP address: ")
+    if ip in arp:
+        print("MAC Address:", arp[ip])
+    else:
+        print("IP not found")
+
+elif choice == 2:
+    mac = input("Enter MAC address: ")
+    found = False
+
+    for ip, address in arp.items():
+        if address == mac:
+            print("IP Address:", ip)
+            found = True
+            break
+
+    if not found:
+        print("MAC not found")
+
+else:
+    print("Invalid choice")
