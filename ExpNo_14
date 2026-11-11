@@ -1,0 +1,30 @@
+
+data = input("Enter data bits: ")
+key = input("Enter generator bits: ")
+
+temp = data + '0' * (len(key) - 1)
+
+for i in range(len(data)):
+    if temp[i] == '1':
+        for j in range(len(key)):
+            temp = temp[:i+j] + str(int(temp[i+j]) ^ int(key[j])) + temp[i+j+1:]
+
+crc = temp[-(len(key)-1):]
+print("CRC:", crc)
+
+code = data + crc
+print("Transmitted Data:", code)
+
+check = input("Enter received data: ")
+
+temp = list(check)
+
+for i in range(len(check) - len(key) + 1):
+    if temp[i] == '1':
+        for j in range(len(key)):
+            temp[i+j] = str(int(temp[i+j]) ^ int(key[j]))
+
+if '1' in temp:
+    print("Error detected")
+else:
+    print("No error detected")
