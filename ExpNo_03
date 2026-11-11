@@ -1,4 +1,4 @@
-
+Server File:
 import socket
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -23,3 +23,38 @@ while True:
 
     conn.sendall(response.encode())
     conn.close()
+
+Client File:
+
+
+import socket
+
+# Create TCP socket
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+client.connect(('localhost', 8080))
+
+# Send HTTP GET request
+request = (
+    "GET / HTTP/1.1\r\n"
+    "Host: localhost\r\n"
+    "Connection: close\r\n"
+    "\r\n"
+)
+
+client.sendall(request.encode())
+
+# Receive response
+response = b""
+
+while True:
+    chunk = client.recv(1024)
+    if not chunk:
+        break
+    response += chunk
+
+print("Received HTTP Response:")
+print(response.decode())
+
+client.close()
+
