@@ -1,0 +1,8 @@
+
+import socket
+
+domain = input("Enter domain name: ")
+
+ip = socket.gethostbyname(domain)
+
+print("DNS IP Address:", ip)
