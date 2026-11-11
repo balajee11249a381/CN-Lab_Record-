@@ -1,0 +1,27 @@
+9.Simulation of congestion control 
+
+set ns [new Simulator]
+set f [open out.tr w]
+$ns trace-all $f
+
+set n0 [$ns node]
+set n1 [$ns node]
+
+$ns duplex-link $n0 $n1 1Mb 10ms DropTail
+$ns queue-limit $n0 $n1 10
+
+set tcp [new Agent/TCP]
+$ns attach-agent $n0 $tcp
+
+set sink [new Agent/TCPSink]
+$ns attach-agent $n1 $sink
+$ns connect $tcp $sink
+
+set ftp [new Application/FTP]
+$ftp attach-agent $tcp
+
+$ns at 0.1 "$ftp start"
+$ns at 4.0 "$ftp stop"
+$ns at 5.0 "close $f; exit 0"
+
+$ns run
