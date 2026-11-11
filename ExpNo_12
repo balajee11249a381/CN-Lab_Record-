@@ -1,0 +1,14 @@
+Simulation of Link state routing algorithm 
+
+set ns [new Simulator]
+set n0 [$ns node]
+set n1 [$ns node]
+set n2 [$ns node]
+
+$ns rtproto LS
+$ns duplex-link $n0 $n1 1Mb 10ms DropTail
+$ns duplex-link $n1 $n2 1Mb 10ms DropTail
+$ns duplex-link $n0 $n2 1Mb 20ms DropTail
+
+$ns at 5.0 "exit 0"
+$ns run
