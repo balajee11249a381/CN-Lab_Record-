@@ -1,0 +1,60 @@
+AIM:
+Study of Topology - Benchmark LAN Trainer Kit
+To study the various network topologies - bus, star, ring, mesh, tree and hybrid- and to
+physically construct and observe them using the Benchmark LAN Trainer Kit.
+
+SOFTWARE REQUIRED:
+• Benchmark LAN Trainer Kit with its node modules, central hub/switch module and
+patch cords.
+• Set of connecting cables (RJ-45 patch cords or the kit's supplied connectors).
+• Kit power supply and the accompanying observation/indicator panel.
+
+THEORY:
+Network topology is the physical or logical arrangement in which nodes (computers,
+terminals or the kit's node modules) are interconnected. The topology determines how data
+flows, how much cabling is needed, how the network behaves when a link or node fails, and
+how easy it is to expand. A LAN trainer kit provides node modules and a central connecting
+module so that each topology can be wired up by hand and its behaviour — signal path, fault
+effect, expandability — directly observed on the kit's indicator panel.
+
+PROCEDURE:
+1. Place the LAN Trainer Kit on the bench and connect its power supply. Switch it on
+and confirm the indicator lamps/LEDs are functioning.
+2. Identify the components: the individual node modules, the central hub/switch module,
+the backbone connector, and the supplied patch cords.
+Bus topology
+3. Connect all node modules along the single common backbone line provided on the
+kit, fitting the terminators at both ends of the bus.
+4. Send data from one node and observe on the indicator panel that the signal travels
+along the shared backbone and is seen by all nodes; only the addressed node accepts
+it.
+5. Disconnect the backbone at a mid-point and note that communication beyond the
+break stops — demonstrating the bus's single point of failure.
+Star topology
+6. Connect each node module by a separate patch cord to a port on the central
+hub/switch module.
+7. Transmit from one node and observe that data passes through the central module to
+reach the destination node.
+8. Disconnect one node's cable and confirm the other nodes continue to communicate;
+then power off the central module and note that the whole network stops — showing
+the star's dependence on the central device.
+Ring topology
+9. Wire the node modules in a closed loop — the output of each node to the input of the
+next — until the last node connects back to the first.
+10. Send data and observe it circulating from node to node around the ring until it reaches
+the intended destination.
+10. Send data and observe it circulating from node to node around the ring until it reaches
+the intended destination.
+11. Open the loop at one link and observe that the ring's data flow is interrupted.
+Mesh topology
+12. Using the available patch cords, connect each node module directly to every other
+node module.
+13. Transmit between two nodes and observe that, because multiple direct paths exist,
+communication continues even if one link is removed — demonstrating fault
+tolerance.
+14. For each topology, record on the observation sheet: number of cables used, the path
+taken by the data, and the effect of a single link or node failure.
+
+RESULT:
+Thus, the bus, star, ring and mesh network topologies were studied and physically
+constructed on the Benchmark LAN Trainer Kit.
