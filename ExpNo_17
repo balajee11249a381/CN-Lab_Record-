@@ -1,0 +1,28 @@
+Wireshark Filters to Inspect Packets on Your Network
+
+ip
+ipv6
+arp
+tcp
+udp
+icmp
+dns
+http
+tls
+dhcp
+tcp.port == 80
+tcp.port == 443
+udp.port == 53
+ip.addr == 192.168.1.1
+ip.src == 192.168.1.1
+ip.dst == 192.168.1.1
+tcp.flags.syn == 1
+tcp.flags.ack == 1
+tcp.analysis.retransmission
+tcp.analysis.lost_segment
+icmp.type == 8
+icmp.type == 0
+frame.len > 1000
+!arp
+dns || http
+tcp && ip
