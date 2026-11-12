@@ -1,0 +1,20 @@
+Wireshark Filters
+
+host 192.168.1.10
+net 192.168.1.0/24
+src host 192.168.1.10
+dst port 53
+tcp port 443
+udp
+not arp and not broadcast
+tcp port 80 and host 192.168.1.10
+ip.addr == 192.168.1.10
+ip.src == 192.168.1.10
+tcp.port == 80
+http
+dns
+http.request.method == "GET"
+tcp.flags.syn == 1 && tcp.flags.ack == 0
+tcp.analysis.retransmission
+ip.addr == 192.168.1.10 && tcp.port == 443
+frame contains "password"
